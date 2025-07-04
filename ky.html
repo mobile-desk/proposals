@@ -1,0 +1,1186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sweets and Treats by Ky</title>
+<script src="https://cdn.tailwindcss.com/3.4.16"></script>
+<script>tailwind.config={theme:{extend:{colors:{primary:'#db71da',secondary:'#dcb1eb'},borderRadius:{'none':'0px','sm':'4px',DEFAULT:'8px','md':'12px','lg':'16px','xl':'20px','2xl':'24px','3xl':'32px','full':'9999px','button':'8px'}}}}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/echarts/5.5.0/echarts.min.js"></script>
+<style>
+:where([class^="ri-"])::before { content: "\f3c2"; }
+body {
+font-family: 'Quicksand', sans-serif;
+background: linear-gradient(135deg, #ebeef0, #dcb1eb, #db71da);
+background-size: 400% 400%;
+animation: gradient 15s ease infinite;
+min-width: 320px;
+overflow-x: hidden;
+}
+@media (max-width: 640px) {
+.glass {
+backdrop-filter: blur(2px);
+}
+.floating {
+animation: none;
+}
+}
+@keyframes gradient {
+0% { background-position: 0% 50%; }
+50% { background-position: 100% 50%; }
+100% { background-position: 0% 50%; }
+}
+.glass {
+background: rgba(255, 255, 255, 0.25);
+backdrop-filter: blur(4px);
+border: 1px solid rgba(255, 255, 255, 0.18);
+box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
+}
+.floating {
+animation: float 6s ease-in-out infinite;
+}
+@keyframes float {
+0% { transform: translateY(0px); }
+50% { transform: translateY(-10px); }
+100% { transform: translateY(0px); }
+}
+.holographic {
+background: linear-gradient(90deg, #db71da, #dcb1eb, #ebeef0, #dcb1eb, #db71da);
+background-size: 200% auto;
+-webkit-background-clip: text;
+background-clip: text;
+color: transparent;
+animation: shine 3s linear infinite;
+}
+@keyframes shine {
+to { background-position: 200% center; }
+}
+.glow {
+filter: drop-shadow(0 0 8px rgba(219, 113, 218, 0.6));
+}
+.custom-checkbox {
+appearance: none;
+width: 1.5rem;
+height: 1.5rem;
+border-radius: 50%;
+background-color: rgba(255, 255, 255, 0.5);
+border: 2px solid #dcb1eb;
+cursor: pointer;
+position: relative;
+transition: all 0.3s;
+}
+.custom-checkbox:checked {
+background-color: #db71da;
+border-color: #db71da;
+}
+.custom-checkbox:checked::after {
+content: '';
+position: absolute;
+top: 50%;
+left: 50%;
+transform: translate(-50%, -50%);
+width: 0.5rem;
+height: 0.5rem;
+border-radius: 50%;
+background-color: white;
+}
+.custom-switch {
+position: relative;
+display: inline-block;
+width: 3.5rem;
+height: 1.75rem;
+}
+.custom-switch input {
+opacity: 0;
+width: 0;
+height: 0;
+}
+.slider {
+position: absolute;
+cursor: pointer;
+top: 0;
+left: 0;
+right: 0;
+bottom: 0;
+background-color: rgba(255, 255, 255, 0.5);
+transition: .4s;
+border-radius: 34px;
+}
+.slider:before {
+position: absolute;
+content: "";
+height: 1.25rem;
+width: 1.25rem;
+left: 0.25rem;
+bottom: 0.25rem;
+background-color: white;
+transition: .4s;
+border-radius: 50%;
+}
+input:checked + .slider {
+background-color: #db71da;
+}
+input:checked + .slider:before {
+transform: translateX(1.75rem);
+}
+.custom-range {
+-webkit-appearance: none;
+width: 100%;
+height: 0.5rem;
+border-radius: 5px;
+background: linear-gradient(90deg, #ebeef0, #dcb1eb, #db71da);
+outline: none;
+}
+.custom-range::-webkit-slider-thumb {
+-webkit-appearance: none;
+appearance: none;
+width: 1.5rem;
+height: 1.5rem;
+border-radius: 50%;
+background: white;
+cursor: pointer;
+box-shadow: 0 0 10px rgba(219, 113, 218, 0.6);
+}
+.custom-range::-moz-range-thumb {
+width: 1.5rem;
+height: 1.5rem;
+border-radius: 50%;
+background: white;
+cursor: pointer;
+box-shadow: 0 0 10px rgba(219, 113, 218, 0.6);
+border: none;
+}
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+-webkit-appearance: none;
+margin: 0;
+}
+.sparkle {
+position: absolute;
+width: 6px;
+height: 6px;
+border-radius: 50%;
+background-color: white;
+box-shadow: 0 0 10px 2px rgba(255, 255, 255, 0.8);
+pointer-events: none;
+opacity: 0;
+}
+@keyframes sparkle-animation {
+0% { transform: scale(0); opacity: 0; }
+50% { transform: scale(1); opacity: 1; }
+100% { transform: scale(0); opacity: 0; }
+}
+.cake-rotate {
+animation: rotate 20s linear infinite;
+}
+@keyframes rotate {
+from { transform: rotate(0deg); }
+to { transform: rotate(360deg); }
+}
+.bubble {
+position: absolute;
+border-radius: 50%;
+background: linear-gradient(135deg, rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.1));
+box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+animation: bubble-float 10s ease-in-out infinite;
+z-index: -1;
+}
+@keyframes bubble-float {
+0% { transform: translateY(0) translateX(0); }
+25% { transform: translateY(-15px) translateX(5px); }
+50% { transform: translateY(0) translateX(10px); }
+75% { transform: translateY(15px) translateX(5px); }
+100% { transform: translateY(0) translateX(0); }
+}
+</style>
+</head>
+<body class="min-h-screen">
+<!-- Decorative Bubbles -->
+<div class="bubble w-20 h-20 top-20 left-[10%]"></div>
+<div class="bubble w-16 h-16 top-40 right-[15%]"></div>
+<div class="bubble w-24 h-24 bottom-40 left-[20%]"></div>
+<div class="bubble w-32 h-32 bottom-60 right-[25%]"></div>
+<div class="bubble w-12 h-12 top-[30%] left-[30%]"></div>
+<!-- Header -->
+<header class="glass sticky top-0 z-50 px-6 py-4">
+<div class="container mx-auto flex justify-between items-center">
+<a href="#" class="font-['Pacifico'] text-2xl sm:text-3xl holographic">Sweets and Treats by Ky</a>
+<nav class="hidden lg:flex space-x-6">
+<a href="#" class="flex flex-col items-center group">
+<div class="w-10 h-10 flex items-center justify-center rounded-full glass group-hover:glow transition-all duration-300">
+<i class="ri-home-5-line text-primary"></i>
+</div>
+<span class="mt-1 text-sm font-medium">Home</span>
+</a>
+<a href="#gallery" class="flex flex-col items-center group">
+<div class="w-10 h-10 flex items-center justify-center rounded-full glass group-hover:glow transition-all duration-300">
+<i class="ri-gallery-line text-primary"></i>
+</div>
+<span class="mt-1 text-sm font-medium">Gallery</span>
+</a>
+<a href="#order" class="flex flex-col items-center group">
+<div class="w-10 h-10 flex items-center justify-center rounded-full glass group-hover:glow transition-all duration-300">
+<i class="ri-shopping-cart-2-line text-primary"></i>
+</div>
+<span class="mt-1 text-sm font-medium">Order Now</span>
+</a>
+<a href="#customize" class="flex flex-col items-center group">
+<div class="w-10 h-10 flex items-center justify-center rounded-full glass group-hover:glow transition-all duration-300">
+<i class="ri-cake-3-line text-primary"></i>
+</div>
+<span class="mt-1 text-sm font-medium">Custom Cakes</span>
+</a>
+<a href="#about" class="flex flex-col items-center group">
+<div class="w-10 h-10 flex items-center justify-center rounded-full glass group-hover:glow transition-all duration-300">
+<i class="ri-information-line text-primary"></i>
+</div>
+<span class="mt-1 text-sm font-medium">About Us</span>
+</a>
+</nav>
+<button class="md:hidden w-10 h-10 flex items-center justify-center rounded-full glass" id="menuToggle">
+<i class="ri-menu-line text-primary"></i>
+</button>
+</div>
+<!-- Mobile Menu -->
+<div id="mobileMenu" class="hidden md:hidden container mx-auto mt-4 pb-4">
+<div class="flex flex-col space-y-4">
+<a href="#" class="flex items-center space-x-3 p-2 rounded-lg glass">
+<div class="w-8 h-8 flex items-center justify-center rounded-full bg-primary/20">
+<i class="ri-home-5-line text-primary"></i>
+</div>
+<span>Home</span>
+</a>
+<a href="#gallery" class="flex items-center space-x-3 p-2 rounded-lg glass">
+<div class="w-8 h-8 flex items-center justify-center rounded-full bg-primary/20">
+<i class="ri-gallery-line text-primary"></i>
+</div>
+<span>Gallery</span>
+</a>
+<a href="#order" class="flex items-center space-x-3 p-2 rounded-lg glass">
+<div class="w-8 h-8 flex items-center justify-center rounded-full bg-primary/20">
+<i class="ri-shopping-cart-2-line text-primary"></i>
+</div>
+<span>Order Now</span>
+</a>
+<a href="#customize" class="flex items-center space-x-3 p-2 rounded-lg glass">
+<div class="w-8 h-8 flex items-center justify-center rounded-full bg-primary/20">
+<i class="ri-cake-3-line text-primary"></i>
+</div>
+<span>Custom Cakes</span>
+</a>
+<a href="#about" class="flex items-center space-x-3 p-2 rounded-lg glass">
+<div class="w-8 h-8 flex items-center justify-center rounded-full bg-primary/20">
+<i class="ri-information-line text-primary"></i>
+</div>
+<span>About Us</span>
+</a>
+</div>
+</div>
+</header>
+<!-- Hero Section -->
+<section class="w-full relative py-20 overflow-hidden" style="background-image: url('https://readdy.ai/api/search-image?query=A%20dreamy%20pastel%20bakery%20scene%20with%20a%20beautiful%20holographic%20gradient%20background%20in%20shades%20of%20pink%20and%20purple.%20The%20scene%20features%20floating%20cupcakes%20and%20sparkles%20with%20a%20soft%20ethereal%20glow.%20The%20image%20has%20a%20magical%2C%20futuristic%20feel%20with%20glass-like%20elements%20and%20bubbles.%20The%20left%20side%20of%20the%20image%20has%20a%20smooth%20gradient%20that%20transitions%20perfectly%20for%20text%20overlay.&width=1600&height=800&seq=hero123&orientation=landscape'); background-size: cover; background-position: center;">
+<div class="absolute inset-0 bg-gradient-to-r from-white/80 to-white/20"></div>
+<div class="container mx-auto px-6 relative z-10">
+<div class="flex flex-col lg:flex-row items-center">
+<div class="lg:w-1/2 text-center lg:text-left mb-10 lg:mb-0">
+<h1 class="text-3xl sm:text-4xl lg:text-6xl font-bold mb-4 holographic">Magical Treats for Special Moments</h1>
+<p class="text-base sm:text-lg lg:text-xl mb-8 text-gray-800">Experience our handcrafted desserts with a touch of magic. From custom cakes to delightful pastries, we bring your sweetest dreams to life.</p>
+<div class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
+<button class="glass px-8 py-3 rounded-full !rounded-button text-primary font-semibold hover:glow transition-all duration-300 whitespace-nowrap">
+Start Order
+</button>
+<button class="bg-white/30 backdrop-blur-sm px-8 py-3 rounded-full !rounded-button text-gray-800 font-semibold hover:bg-white/50 transition-all duration-300 whitespace-nowrap">
+Explore Gallery
+</button>
+</div>
+</div>
+<div class="md:w-1/2 relative">
+<div class="floating cake-rotate w-64 h-64 mx-auto flex items-center justify-center">
+<i class="ri-cake-3-line text-8xl text-primary glow"></i>
+</div>
+<div class="absolute top-1/4 left-1/4 w-8 h-8 floating flex items-center justify-center" style="animation-delay: 1s;">
+<i class="ri-cake-line text-2xl text-primary glow"></i>
+</div>
+<div class="absolute bottom-1/3 right-1/4 w-10 h-10 floating flex items-center justify-center" style="animation-delay: 2s;">
+<i class="ri-gift-line text-3xl text-secondary glow"></i>
+</div>
+<div class="absolute top-1/3 right-1/5 w-6 h-6 floating flex items-center justify-center" style="animation-delay: 0.5s;">
+<i class="ri-heart-line text-xl text-primary glow"></i>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Features Section -->
+<section class="py-16 px-6">
+<div class="container mx-auto">
+<h2 class="text-3xl md:text-4xl font-bold text-center mb-12 holographic">Discover Our Magic</h2>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+<!-- Feature 1 -->
+<div class="glass rounded-3xl p-6 transform hover:-translate-y-2 transition-all duration-500 floating" style="animation-delay: 0.2s;">
+<div class="w-16 h-16 flex items-center justify-center rounded-full bg-primary/20 mb-6 mx-auto">
+<i class="ri-gallery-line text-2xl text-primary"></i>
+</div>
+<h3 class="text-xl font-bold text-center mb-4">Browse Gallery</h3>
+<p class="text-gray-700 text-center mb-6">Explore our collection of handcrafted desserts, from elegant cakes to delightful pastries.</p>
+<div class="relative h-40 overflow-hidden rounded-xl mb-6">
+<img src="https://readdy.ai/api/search-image?query=A%20beautiful%20collection%20of%20pastel%20colored%20cupcakes%2C%20macarons%20and%20small%20cakes%20arranged%20in%20an%20aesthetic%20display%20with%20holographic%20decorative%20elements%20and%20soft%20lighting.%20The%20desserts%20have%20a%20dreamy%2C%20magical%20quality%20with%20sparkles%20and%20glass-like%20decorations.&width=400&height=240&seq=gallery1&orientation=landscape" alt="Dessert Gallery" class="w-full h-full object-cover">
+</div>
+<button class="w-full glass py-3 rounded-xl !rounded-button text-primary font-medium hover:glow transition-all duration-300 whitespace-nowrap">
+View Gallery
+</button>
+</div>
+<!-- Feature 2 -->
+<div class="glass rounded-3xl p-6 transform hover:-translate-y-2 transition-all duration-500 floating" style="animation-delay: 0.4s;">
+<div class="w-16 h-16 flex items-center justify-center rounded-full bg-primary/20 mb-6 mx-auto">
+<i class="ri-cake-3-line text-2xl text-primary"></i>
+</div>
+<h3 class="text-xl font-bold text-center mb-4">Custom Orders</h3>
+<p class="text-gray-700 text-center mb-6">Design your dream cake with our interactive customization tool for any special occasion.</p>
+<div class="relative h-40 overflow-hidden rounded-xl mb-6">
+<img src="https://readdy.ai/api/search-image?query=A%20futuristic%203D%20cake%20customization%20interface%20showing%20a%20pastel%20cake%20being%20designed%20with%20holographic%20UI%20elements.%20The%20interface%20has%20soft%20glowing%20buttons%20and%20sliders%20with%20a%20magical%2C%20dreamy%20quality.%20The%20scene%20shows%20hands%20interacting%20with%20the%20digital%20cake%20design.&width=400&height=240&seq=custom1&orientation=landscape" alt="Custom Cake Designer" class="w-full h-full object-cover">
+</div>
+<button class="w-full glass py-3 rounded-xl !rounded-button text-primary font-medium hover:glow transition-all duration-300 whitespace-nowrap">
+Start Designing
+</button>
+</div>
+<!-- Feature 3 -->
+<div class="glass rounded-3xl p-6 transform hover:-translate-y-2 transition-all duration-500 floating" style="animation-delay: 0.6s;">
+<div class="w-16 h-16 flex items-center justify-center rounded-full bg-primary/20 mb-6 mx-auto">
+<i class="ri-shopping-cart-2-line text-2xl text-primary"></i>
+</div>
+<h3 class="text-xl font-bold text-center mb-4">Quick Order</h3>
+<p class="text-gray-700 text-center mb-6">Browse our bestsellers and place your order with our smooth, easy checkout process.</p>
+<div class="relative h-40 overflow-hidden rounded-xl mb-6">
+<img src="https://readdy.ai/api/search-image?query=A%20beautiful%20display%20of%20bestselling%20pastel%20desserts%20including%20a%20pink%20cake%2C%20purple%20macarons%2C%20and%20cupcakes%20with%20a%20shopping%20cart%20interface%20overlay.%20The%20scene%20has%20a%20dreamy%2C%20holographic%20quality%20with%20soft%20lighting%20and%20sparkle%20elements%20giving%20it%20a%20magical%20feel.&width=400&height=240&seq=order1&orientation=landscape" alt="Quick Order" class="w-full h-full object-cover">
+</div>
+<button class="w-full glass py-3 rounded-xl !rounded-button text-primary font-medium hover:glow transition-all duration-300 whitespace-nowrap">
+Order Now
+</button>
+</div>
+</div>
+</div>
+</section>
+<!-- Cake Customization Tool -->
+<section id="customize" class="py-16 px-6">
+<div class="container mx-auto">
+<h2 class="text-3xl md:text-4xl font-bold text-center mb-12 holographic">Design Your Dream Cake</h2>
+<div class="glass rounded-3xl p-8 md:p-12">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+<!-- Preview Section -->
+<div class="relative h-96 rounded-2xl overflow-hidden bg-white/30 backdrop-blur-sm flex items-center justify-center">
+<div class="floating cake-rotate w-64 h-64 mx-auto flex items-center justify-center" id="cakePreview">
+<i class="ri-cake-2-line text-8xl text-primary glow"></i>
+</div>
+<!-- Floating decorative elements -->
+<div class="absolute top-1/4 left-1/4 w-6 h-6 floating" style="animation-delay: 1.2s;">
+<img src="https://readdy.ai/api/search-image?query=A%20small%20cute%20star-shaped%20sprinkle%20with%20holographic%20effect%20floating%20in%20space%20with%20a%20magical%20glow%20on%20transparent%20background&width=48&height=48&seq=sprinkle1&orientation=squarish" alt="Floating Sprinkle" class="w-full h-full">
+</div>
+<div class="absolute bottom-1/3 right-1/4 w-8 h-8 floating" style="animation-delay: 0.8s;">
+<img src="https://readdy.ai/api/search-image?query=A%20small%20cute%20heart-shaped%20candy%20with%20holographic%20effect%20floating%20in%20space%20with%20a%20magical%20glow%20on%20transparent%20background&width=48&height=48&seq=candy1&orientation=squarish" alt="Floating Candy" class="w-full h-full">
+</div>
+</div>
+<!-- Customization Options -->
+<div class="space-y-6">
+<!-- Cake Size -->
+<div>
+<h3 class="text-lg font-semibold mb-3">Cake Size</h3>
+<div class="flex flex-wrap gap-3">
+<button class="size-option glass px-4 py-2 rounded-full !rounded-button whitespace-nowrap active" data-size="6">6" (6-8 servings)</button>
+<button class="size-option glass px-4 py-2 rounded-full !rounded-button whitespace-nowrap" data-size="8">8" (10-12 servings)</button>
+<button class="size-option glass px-4 py-2 rounded-full !rounded-button whitespace-nowrap" data-size="10">10" (16-20 servings)</button>
+<button class="size-option glass px-4 py-2 rounded-full !rounded-button whitespace-nowrap" data-size="tiered">Two-tier (25+ servings)</button>
+</div>
+</div>
+<!-- Cake Flavor -->
+<div>
+<h3 class="text-lg font-semibold mb-3">Cake Flavor</h3>
+<div class="grid grid-cols-2 gap-2 sm:gap-3">
+<label class="flex items-center space-x-2 cursor-pointer">
+<input type="radio" name="flavor" value="vanilla" class="custom-checkbox" checked>
+<span>Vanilla</span>
+</label>
+<label class="flex items-center space-x-2 cursor-pointer">
+<input type="radio" name="flavor" value="chocolate" class="custom-checkbox">
+<span>Chocolate</span>
+</label>
+<label class="flex items-center space-x-2 cursor-pointer">
+<input type="radio" name="flavor" value="strawberry" class="custom-checkbox">
+<span>Strawberry</span>
+</label>
+<label class="flex items-center space-x-2 cursor-pointer">
+<input type="radio" name="flavor" value="lemon" class="custom-checkbox">
+<span>Lemon</span>
+</label>
+<label class="flex items-center space-x-2 cursor-pointer">
+<input type="radio" name="flavor" value="redvelvet" class="custom-checkbox">
+<span>Red Velvet</span>
+</label>
+<label class="flex items-center space-x-2 cursor-pointer">
+<input type="radio" name="flavor" value="coconut" class="custom-checkbox">
+<span>Coconut</span>
+</label>
+</div>
+</div>
+<!-- Frosting Color -->
+<div>
+<h3 class="text-lg font-semibold mb-3">Frosting Color</h3>
+<div class="flex flex-wrap gap-3">
+<button class="color-option w-10 h-10 rounded-full border-2 border-white" style="background-color: #f9c5d1;" data-color="pink"></button>
+<button class="color-option w-10 h-10 rounded-full border-2 border-white" style="background-color: #b8c6db;" data-color="lavender"></button>
+<button class="color-option w-10 h-10 rounded-full border-2 border-white" style="background-color: #a1eafb;" data-color="blue"></button>
+<button class="color-option w-10 h-10 rounded-full border-2 border-white" style="background-color: #d1f0b1;" data-color="mint"></button>
+<button class="color-option w-10 h-10 rounded-full border-2 border-white" style="background-color: #ffeaa7;" data-color="yellow"></button>
+<button class="color-option w-10 h-10 rounded-full border-2 border-white" style="background-color: #ffffff;" data-color="white"></button>
+<button class="color-option w-10 h-10 rounded-full border-2 border-white active" style="background-color: #db71da;" data-color="holographic"></button>
+</div>
+</div>
+<!-- Toppings -->
+<div>
+<h3 class="text-lg font-semibold mb-3">Toppings</h3>
+<div class="grid grid-cols-2 gap-3">
+<label class="flex items-center space-x-2 cursor-pointer">
+<input type="checkbox" name="toppings" value="sprinkles" class="custom-checkbox">
+<span>Sprinkles</span>
+</label>
+<label class="flex items-center space-x-2 cursor-pointer">
+<input type="checkbox" name="toppings" value="flowers" class="custom-checkbox">
+<span>Edible Flowers</span>
+</label>
+<label class="flex items-center space-x-2 cursor-pointer">
+<input type="checkbox" name="toppings" value="fruits" class="custom-checkbox">
+<span>Fresh Fruits</span>
+</label>
+<label class="flex items-center space-x-2 cursor-pointer">
+<input type="checkbox" name="toppings" value="macarons" class="custom-checkbox">
+<span>Mini Macarons</span>
+</label>
+<label class="flex items-center space-x-2 cursor-pointer">
+<input type="checkbox" name="toppings" value="chocolate" class="custom-checkbox">
+<span>Chocolate Drip</span>
+</label>
+<label class="flex items-center space-x-2 cursor-pointer">
+<input type="checkbox" name="toppings" value="glitter" class="custom-checkbox">
+<span>Edible Glitter</span>
+</label>
+</div>
+</div>
+<!-- Special Instructions -->
+<div>
+<h3 class="text-lg font-semibold mb-3">Special Instructions</h3>
+<textarea class="w-full h-24 p-3 rounded-xl bg-white/30 backdrop-blur-sm border-none focus:ring-2 focus:ring-primary focus:outline-none" placeholder="Add any special requests or details..."></textarea>
+</div>
+<!-- Price and Add to Cart -->
+<div class="flex flex-col sm:flex-row justify-between items-center pt-4">
+<div class="text-xl font-bold mb-4 sm:mb-0">
+Total: <span class="text-primary" id="cakePrice">$42.99</span>
+</div>
+<button class="glass px-8 py-3 rounded-full !rounded-button text-primary font-semibold hover:glow transition-all duration-300 whitespace-nowrap">
+Add to Cart
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Gallery Section -->
+<section id="gallery" class="py-16 px-6">
+<div class="container mx-auto">
+<h2 class="text-3xl md:text-4xl font-bold text-center mb-12 holographic">Our Sweet Creations</h2>
+<!-- Filter Buttons -->
+<div class="flex flex-wrap justify-center gap-2 sm:gap-3 mb-10">
+<button class="filter-btn glass px-4 sm:px-6 py-2 rounded-full !rounded-button whitespace-nowrap text-sm sm:text-base active" data-filter="all">
+All Items
+</button>
+<button class="filter-btn glass px-6 py-2 rounded-full !rounded-button whitespace-nowrap" data-filter="cakes">
+Cakes
+</button>
+<button class="filter-btn glass px-6 py-2 rounded-full !rounded-button whitespace-nowrap" data-filter="cupcakes">
+Cupcakes
+</button>
+<button class="filter-btn glass px-6 py-2 rounded-full !rounded-button whitespace-nowrap" data-filter="cookies">
+Cookies
+</button>
+<button class="filter-btn glass px-6 py-2 rounded-full !rounded-button whitespace-nowrap" data-filter="macarons">
+Macarons
+</button>
+</div>
+<!-- Gallery Grid -->
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+<!-- Item 1 -->
+<div class="gallery-item" data-category="cakes">
+<div class="glass rounded-2xl p-4 transform hover:-translate-y-2 transition-all duration-500">
+<div class="relative h-64 rounded-xl overflow-hidden mb-4">
+<img src="https://readdy.ai/api/search-image?query=A%20beautiful%20pastel%20pink%20birthday%20cake%20with%20holographic%20decorations%20and%20soft%20rounded%20edges.%20The%20cake%20has%20multiple%20tiers%20with%20elegant%20frosting%20details%20and%20is%20decorated%20with%20edible%20glitter%20and%20magical%20elements.%20The%20cake%20has%20a%20dreamy%2C%20ethereal%20quality%20with%20a%20soft%20glow.&width=400&height=400&seq=cake1&orientation=squarish" alt="Birthday Cake" class="w-full h-full object-cover">
+</div>
+<h3 class="text-lg font-bold mb-2">Dreamy Birthday Cake</h3>
+<div class="flex justify-between items-center">
+<span class="text-primary font-semibold">$48.99</span>
+<button class="glass p-2 rounded-full !rounded-button hover:glow transition-all duration-300">
+<i class="ri-shopping-cart-2-line"></i>
+</button>
+</div>
+</div>
+</div>
+<!-- Item 2 -->
+<div class="gallery-item" data-category="cupcakes">
+<div class="glass rounded-2xl p-4 transform hover:-translate-y-2 transition-all duration-500">
+<div class="relative h-64 rounded-xl overflow-hidden mb-4">
+<img src="https://readdy.ai/api/search-image?query=A%20set%20of%20pastel%20purple%20cupcakes%20with%20holographic%20frosting%20swirls%20and%20edible%20glitter.%20The%20cupcakes%20have%20a%20magical%20appearance%20with%20star-shaped%20sprinkles%20and%20soft%20rounded%20frosting%20peaks.%20They%20have%20a%20dreamy%2C%20ethereal%20quality%20with%20a%20soft%20glow.&width=400&height=400&seq=cupcake2&orientation=squarish" alt="Holographic Cupcakes" class="w-full h-full object-cover">
+</div>
+<h3 class="text-lg font-bold mb-2">Holographic Cupcakes</h3>
+<div class="flex justify-between items-center">
+<span class="text-primary font-semibold">$24.99 / 6pcs</span>
+<button class="glass p-2 rounded-full !rounded-button hover:glow transition-all duration-300">
+<i class="ri-shopping-cart-2-line"></i>
+</button>
+</div>
+</div>
+</div>
+<!-- Item 3 -->
+<div class="gallery-item" data-category="macarons">
+<div class="glass rounded-2xl p-4 transform hover:-translate-y-2 transition-all duration-500">
+<div class="relative h-64 rounded-xl overflow-hidden mb-4">
+<img src="https://readdy.ai/api/search-image?query=A%20beautiful%20arrangement%20of%20pastel%20colored%20macarons%20in%20pink%2C%20purple%2C%20and%20blue%20with%20holographic%20elements.%20The%20macarons%20have%20a%20perfect%20shape%20with%20smooth%20tops%20and%20ruffled%20feet.%20They%20have%20a%20magical%2C%20dreamy%20quality%20with%20a%20soft%20glow%20and%20some%20have%20edible%20glitter.&width=400&height=400&seq=macaron2&orientation=squarish" alt="Magical Macarons" class="w-full h-full object-cover">
+</div>
+<h3 class="text-lg font-bold mb-2">Magical Macarons</h3>
+<div class="flex justify-between items-center">
+<span class="text-primary font-semibold">$18.99 / 8pcs</span>
+<button class="glass p-2 rounded-full !rounded-button hover:glow transition-all duration-300">
+<i class="ri-shopping-cart-2-line"></i>
+</button>
+</div>
+</div>
+</div>
+<!-- Item 4 -->
+<div class="gallery-item" data-category="cookies">
+<div class="glass rounded-2xl p-4 transform hover:-translate-y-2 transition-all duration-500">
+<div class="relative h-64 rounded-xl overflow-hidden mb-4">
+<img src="https://readdy.ai/api/search-image?query=A%20set%20of%20pastel%20colored%20sugar%20cookies%20with%20holographic%20icing%20in%20star%20and%20heart%20shapes.%20The%20cookies%20have%20smooth%2C%20perfect%20icing%20with%20magical%20decorative%20elements%20and%20edible%20glitter.%20They%20have%20a%20dreamy%2C%20ethereal%20quality%20with%20a%20soft%20glow.&width=400&height=400&seq=cookie2&orientation=squarish" alt="Star & Heart Cookies" class="w-full h-full object-cover">
+</div>
+<h3 class="text-lg font-bold mb-2">Star & Heart Cookies</h3>
+<div class="flex justify-between items-center">
+<span class="text-primary font-semibold">$16.99 / 12pcs</span>
+<button class="glass p-2 rounded-full !rounded-button hover:glow transition-all duration-300">
+<i class="ri-shopping-cart-2-line"></i>
+</button>
+</div>
+</div>
+</div>
+<!-- Item 5 -->
+<div class="gallery-item" data-category="cakes">
+<div class="glass rounded-2xl p-4 transform hover:-translate-y-2 transition-all duration-500">
+<div class="relative h-64 rounded-xl overflow-hidden mb-4">
+<img src="https://readdy.ai/api/search-image?query=A%20beautiful%20pastel%20blue%20and%20purple%20galaxy-themed%20cake%20with%20holographic%20elements%20and%20edible%20stars.%20The%20cake%20has%20smooth%20frosting%20with%20a%20cosmic%20swirl%20pattern%20and%20is%20decorated%20with%20magical%20elements.%20It%20has%20a%20dreamy%2C%20ethereal%20quality%20with%20a%20soft%20glow.&width=400&height=400&seq=cake3&orientation=squarish" alt="Galaxy Dream Cake" class="w-full h-full object-cover">
+</div>
+<h3 class="text-lg font-bold mb-2">Galaxy Dream Cake</h3>
+<div class="flex justify-between items-center">
+<span class="text-primary font-semibold">$52.99</span>
+<button class="glass p-2 rounded-full !rounded-button hover:glow transition-all duration-300">
+<i class="ri-shopping-cart-2-line"></i>
+</button>
+</div>
+</div>
+</div>
+<!-- Item 6 -->
+<div class="gallery-item" data-category="cupcakes">
+<div class="glass rounded-2xl p-4 transform hover:-translate-y-2 transition-all duration-500">
+<div class="relative h-64 rounded-xl overflow-hidden mb-4">
+<img src="https://readdy.ai/api/search-image?query=A%20set%20of%20pastel%20pink%20and%20mint%20green%20cupcakes%20with%20cloud-like%20frosting%20and%20edible%20pearls.%20The%20cupcakes%20have%20a%20magical%20appearance%20with%20soft%2C%20fluffy%20frosting%20peaks%20and%20delicate%20decorations.%20They%20have%20a%20dreamy%2C%20ethereal%20quality%20with%20a%20soft%20glow.&width=400&height=400&seq=cupcake3&orientation=squarish" alt="Cloud Cupcakes" class="w-full h-full object-cover">
+</div>
+<h3 class="text-lg font-bold mb-2">Cloud Cupcakes</h3>
+<div class="flex justify-between items-center">
+<span class="text-primary font-semibold">$26.99 / 6pcs</span>
+<button class="glass p-2 rounded-full !rounded-button hover:glow transition-all duration-300">
+<i class="ri-shopping-cart-2-line"></i>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- View More Button -->
+<div class="text-center mt-10">
+<button class="glass px-8 py-3 rounded-full !rounded-button text-primary font-semibold hover:glow transition-all duration-300 whitespace-nowrap">
+View More Treats
+</button>
+</div>
+</div>
+</section>
+<!-- Ordering Process -->
+<section id="order" class="py-16 px-6">
+<div class="container mx-auto">
+<h2 class="text-3xl md:text-4xl font-bold text-center mb-12 holographic">How to Order</h2>
+<div class="glass rounded-3xl p-8 md:p-12">
+<!-- Progress Steps -->
+<div class="flex flex-wrap justify-center mb-12">
+<div class="flex flex-col items-center mx-4 mb-6">
+<div class="w-16 h-16 flex items-center justify-center rounded-full bg-primary text-white text-xl font-bold mb-3 glow">1</div>
+<span class="text-center font-medium">Browse & Select</span>
+</div>
+<div class="hidden sm:block w-16 h-1 bg-white/30 self-center mx-2"></div>
+<div class="flex flex-col items-center mx-4 mb-6">
+<div class="w-16 h-16 flex items-center justify-center rounded-full bg-white/40 text-gray-700 text-xl font-bold mb-3">2</div>
+<span class="text-center font-medium">Customize</span>
+</div>
+<div class="hidden sm:block w-16 h-1 bg-white/30 self-center mx-2"></div>
+<div class="flex flex-col items-center mx-4 mb-6">
+<div class="w-16 h-16 flex items-center justify-center rounded-full bg-white/40 text-gray-700 text-xl font-bold mb-3">3</div>
+<span class="text-center font-medium">Delivery Details</span>
+</div>
+<div class="hidden sm:block w-16 h-1 bg-white/30 self-center mx-2"></div>
+<div class="flex flex-col items-center mx-4 mb-6">
+<div class="w-16 h-16 flex items-center justify-center rounded-full bg-white/40 text-gray-700 text-xl font-bold mb-3">4</div>
+<span class="text-center font-medium">Confirm & Pay</span>
+</div>
+</div>
+<!-- Step Content -->
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+<!-- Left Column - Products -->
+<div>
+<h3 class="text-lg sm:text-xl font-bold mb-6">Select Your Treats</h3>
+<div class="space-y-4">
+<!-- Product 1 -->
+<div class="flex items-center p-3 sm:p-4 rounded-xl bg-white/20">
+<div class="w-16 sm:w-20 h-16 sm:h-20 rounded-lg overflow-hidden mr-3 sm:mr-4">
+<img src="https://readdy.ai/api/search-image?query=A%20beautiful%20pastel%20pink%20cupcake%20with%20holographic%20frosting%20and%20star%20sprinkles%20on%20a%20simple%20background.%20The%20cupcake%20has%20a%20perfect%20swirl%20of%20frosting%20with%20a%20magical%20glow.&width=160&height=160&seq=prod1&orientation=squarish" alt="Starlight Cupcake" class="w-full h-full object-cover">
+</div>
+<div class="flex-1">
+<h4 class="font-semibold">Starlight Cupcake</h4>
+<p class="text-sm text-gray-700">Vanilla cake with holographic frosting</p>
+<div class="flex justify-between items-center mt-2">
+<span class="text-primary font-medium">$4.99</span>
+<div class="flex items-center">
+<button class="w-8 h-8 flex items-center justify-center rounded-full bg-white/30">-</button>
+<input type="number" value="0" class="w-10 text-center bg-transparent border-none mx-1">
+<button class="w-8 h-8 flex items-center justify-center rounded-full bg-white/30">+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Product 2 -->
+<div class="flex items-center p-3 sm:p-4 rounded-xl bg-white/20">
+<div class="w-16 sm:w-20 h-16 sm:h-20 rounded-lg overflow-hidden mr-3 sm:mr-4">
+<img src="https://readdy.ai/api/search-image?query=A%20beautiful%20pastel%20purple%20macaron%20with%20holographic%20shimmer%20and%20a%20perfect%20shape%20on%20a%20simple%20background.%20The%20macaron%20has%20a%20smooth%20top%20and%20ruffled%20feet%20with%20a%20magical%20glow.&width=160&height=160&seq=prod2&orientation=squarish" alt="Dream Macaron" class="w-full h-full object-cover">
+</div>
+<div class="flex-1">
+<h4 class="font-semibold">Dream Macaron</h4>
+<p class="text-sm text-gray-700">Lavender flavor with shimmer dust</p>
+<div class="flex justify-between items-center mt-2">
+<span class="text-primary font-medium">$2.99</span>
+<div class="flex items-center">
+<button class="w-8 h-8 flex items-center justify-center rounded-full bg-white/30">-</button>
+<input type="number" value="0" class="w-10 text-center bg-transparent border-none mx-1">
+<button class="w-8 h-8 flex items-center justify-center rounded-full bg-white/30">+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Product 3 -->
+<div class="flex items-center p-3 sm:p-4 rounded-xl bg-white/20">
+<div class="w-16 sm:w-20 h-16 sm:h-20 rounded-lg overflow-hidden mr-3 sm:mr-4">
+<img src="https://readdy.ai/api/search-image?query=A%20beautiful%20pastel%20blue%20cake%20pop%20with%20holographic%20sprinkles%20and%20a%20perfect%20round%20shape%20on%20a%20simple%20background.%20The%20cake%20pop%20has%20a%20smooth%20coating%20with%20a%20magical%20glow.&width=160&height=160&seq=prod3&orientation=squarish" alt="Cosmic Cake Pop" class="w-full h-full object-cover">
+</div>
+<div class="flex-1">
+<h4 class="font-semibold">Cosmic Cake Pop</h4>
+<p class="text-sm text-gray-700">Blue velvet with cosmic sprinkles</p>
+<div class="flex justify-between items-center mt-2">
+<span class="text-primary font-medium">$3.49</span>
+<div class="flex items-center">
+<button class="w-8 h-8 flex items-center justify-center rounded-full bg-white/30">-</button>
+<input type="number" value="0" class="w-10 text-center bg-transparent border-none mx-1">
+<button class="w-8 h-8 flex items-center justify-center rounded-full bg-white/30">+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- View More Link -->
+<div class="text-center pt-2">
+<a href="#" class="text-primary font-medium hover:underline">View more products</a>
+</div>
+</div>
+</div>
+<!-- Right Column - Order Summary -->
+<div>
+<h3 class="text-xl font-bold mb-6">Order Summary</h3>
+<div class="glass rounded-xl p-6 mb-6">
+<div class="space-y-4 mb-6">
+<div class="flex justify-between">
+<span>Subtotal</span>
+<span>$0.00</span>
+</div>
+<div class="flex justify-between">
+<span>Tax</span>
+<span>$0.00</span>
+</div>
+<div class="flex justify-between">
+<span>Delivery</span>
+<span>$0.00</span>
+</div>
+<div class="h-px bg-white/30 my-2"></div>
+<div class="flex justify-between font-bold">
+<span>Total</span>
+<span class="text-primary">$0.00</span>
+</div>
+</div>
+<!-- Promo Code -->
+<div class="flex mb-6">
+<input type="text" placeholder="Promo code" class="flex-1 px-4 py-2 rounded-l-lg bg-white/30 border-none focus:outline-none focus:ring-2 focus:ring-primary">
+<button class="px-4 py-2 bg-primary text-white rounded-r-lg !rounded-button whitespace-nowrap">Apply</button>
+</div>
+<!-- Continue Button -->
+<button class="w-full glass py-3 rounded-xl !rounded-button text-primary font-medium hover:glow transition-all duration-300 whitespace-nowrap">
+Continue to Customize
+</button>
+</div>
+<!-- Delivery Options -->
+<div>
+<h4 class="font-semibold mb-3">Delivery Options</h4>
+<div class="space-y-3">
+<label class="flex items-center justify-between p-3 rounded-lg bg-white/20 cursor-pointer">
+<div class="flex items-center">
+<input type="radio" name="delivery" value="pickup" class="custom-checkbox" checked>
+<span class="ml-2">Store Pickup</span>
+</div>
+<span class="font-medium">Free</span>
+</label>
+<label class="flex items-center justify-between p-3 rounded-lg bg-white/20 cursor-pointer">
+<div class="flex items-center">
+<input type="radio" name="delivery" value="standard" class="custom-checkbox">
+<span class="ml-2">Standard Delivery</span>
+</div>
+<span class="font-medium">$5.99</span>
+</label>
+<label class="flex items-center justify-between p-3 rounded-lg bg-white/20 cursor-pointer">
+<div class="flex items-center">
+<input type="radio" name="delivery" value="express" class="custom-checkbox">
+<span class="ml-2">Express Delivery</span>
+</div>
+<span class="font-medium">$9.99</span>
+</label>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Testimonials -->
+<section class="py-16 px-6">
+<div class="container mx-auto">
+<h2 class="text-3xl md:text-4xl font-bold text-center mb-12 holographic">Sweet Words from Happy Customers</h2>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<!-- Testimonial 1 -->
+<div class="glass rounded-3xl p-6 floating" style="animation-delay: 0.1s;">
+<div class="flex items-center mb-4">
+<div class="w-12 h-12 rounded-full overflow-hidden mr-3">
+<img src="https://readdy.ai/api/search-image?query=A%20professional%20headshot%20of%20a%20smiling%20young%20woman%20with%20long%20blonde%20hair%20and%20a%20friendly%20expression%20on%20a%20simple%20background&width=96&height=96&seq=person1&orientation=squarish" alt="Emily Johnson" class="w-full h-full object-cover">
+</div>
+<div>
+<h4 class="font-semibold">Emily Johnson</h4>
+<div class="flex text-yellow-400">
+<i class="ri-star-fill"></i>
+<i class="ri-star-fill"></i>
+<i class="ri-star-fill"></i>
+<i class="ri-star-fill"></i>
+<i class="ri-star-fill"></i>
+</div>
+</div>
+</div>
+<p class="text-gray-700">"The birthday cake I ordered for my daughter was absolutely magical! The holographic frosting was even more beautiful in person, and it tasted incredible. Everyone at the party was amazed!"</p>
+</div>
+<!-- Testimonial 2 -->
+<div class="glass rounded-3xl p-6 floating" style="animation-delay: 0.3s;">
+<div class="flex items-center mb-4">
+<div class="w-12 h-12 rounded-full overflow-hidden mr-3">
+<img src="https://readdy.ai/api/search-image?query=A%20professional%20headshot%20of%20a%20smiling%20middle-aged%20man%20with%20short%20dark%20hair%20and%20glasses%20on%20a%20simple%20background&width=96&height=96&seq=person2&orientation=squarish" alt="Michael Chen" class="w-full h-full object-cover">
+</div>
+<div>
+<h4 class="font-semibold">Michael Chen</h4>
+<div class="flex text-yellow-400">
+<i class="ri-star-fill"></i>
+<i class="ri-star-fill"></i>
+<i class="ri-star-fill"></i>
+<i class="ri-star-fill"></i>
+<i class="ri-star-half-fill"></i>
+</div>
+</div>
+</div>
+<p class="text-gray-700">"I ordered custom macarons for a corporate event, and they were a huge hit! The online ordering process was so easy, and the delivery was right on time. Will definitely order again!"</p>
+</div>
+<!-- Testimonial 3 -->
+<div class="glass rounded-3xl p-6 floating" style="animation-delay: 0.5s;">
+<div class="flex items-center mb-4">
+<div class="w-12 h-12 rounded-full overflow-hidden mr-3">
+<img src="https://readdy.ai/api/search-image?query=A%20professional%20headshot%20of%20a%20smiling%20young%20woman%20with%20curly%20dark%20hair%20and%20a%20warm%20expression%20on%20a%20simple%20background&width=96&height=96&seq=person3&orientation=squarish" alt="Sophia Rodriguez" class="w-full h-full object-cover">
+</div>
+<div>
+<h4 class="font-semibold">Sophia Rodriguez</h4>
+<div class="flex text-yellow-400">
+<i class="ri-star-fill"></i>
+<i class="ri-star-fill"></i>
+<i class="ri-star-fill"></i>
+<i class="ri-star-fill"></i>
+<i class="ri-star-fill"></i>
+</div>
+</div>
+</div>
+<p class="text-gray-700">"The custom cake I designed for my wedding was beyond my wildest dreams! The interactive design tool made it so fun to create, and Ky brought my vision to life perfectly. Our guests couldn't stop talking about it!"</p>
+</div>
+</div>
+</div>
+</section>
+<!-- About Section -->
+<section id="about" class="py-16 px-6">
+<div class="container mx-auto">
+<div class="glass rounded-3xl p-8 md:p-12">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+<div>
+<h2 class="text-3xl md:text-4xl font-bold mb-6 holographic">About Sweets and Treats by Ky</h2>
+<p class="text-gray-700 mb-4">Founded in 2022, Sweets and Treats by Ky brings a magical, futuristic twist to traditional baking. Our passion is creating desserts that are not only delicious but visually stunning and unique.</p>
+<p class="text-gray-700 mb-4">Every creation is handcrafted with love and attention to detail, using only the finest ingredients. We specialize in custom designs that bring your sweetest dreams to life, whether for birthdays, weddings, or any special occasion.</p>
+<p class="text-gray-700 mb-6">Our signature holographic designs and pastel color palette have become our trademark, making each dessert not just a treat for the taste buds but a feast for the eyes.</p>
+<div class="flex flex-col sm:flex-row gap-4">
+<button class="glass px-6 py-3 rounded-full !rounded-button text-primary font-semibold hover:glow transition-all duration-300 whitespace-nowrap">
+Our Story
+</button>
+<button class="bg-white/30 backdrop-blur-sm px-6 py-3 rounded-full !rounded-button text-gray-800 font-semibold hover:bg-white/50 transition-all duration-300 whitespace-nowrap">
+Contact Us
+</button>
+</div>
+</div>
+<div class="relative">
+<div class="floating w-full h-80 md:h-96">
+<img src="https://readdy.ai/api/search-image?query=A%20beautiful%20bakery%20interior%20with%20pastel%20colors%20and%20holographic%20decorative%20elements.%20The%20scene%20shows%20a%20modern%2C%20dreamy%20bakery%20with%20glass%20display%20cases%20filled%20with%20colorful%20desserts.%20The%20bakery%20has%20a%20futuristic%20yet%20cozy%20feel%20with%20soft%20lighting%20and%20magical%20elements.&width=600&height=600&seq=bakery1&orientation=squarish" alt="Our Bakery" class="w-full h-full object-cover rounded-2xl">
+</div>
+<!-- Floating elements -->
+<div class="absolute -top-4 -right-4 w-24 h-24 floating" style="animation-delay: 0.7s;">
+<img src="https://readdy.ai/api/search-image?query=A%20cute%20cartoon%20baker%20character%20with%20pink%20hair%20wearing%20a%20pastel%20chef%20hat%20and%20apron%20with%20a%20magical%2C%20holographic%20style%20on%20a%20transparent%20background&width=192&height=192&seq=baker1&orientation=squarish" alt="Baker Character" class="w-full h-full">
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Newsletter -->
+<section class="py-16 px-6">
+<div class="container mx-auto">
+<div class="glass rounded-3xl p-8 md:p-12 text-center">
+<h2 class="text-3xl md:text-4xl font-bold mb-4 holographic">Join Our Sweet Community</h2>
+<p class="text-gray-700 mb-8 max-w-2xl mx-auto">Subscribe to our newsletter for exclusive offers, baking tips, and first access to new magical creations!</p>
+<div class="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
+<input type="email" placeholder="Your email address" class="flex-1 px-4 py-3 rounded-full bg-white/30 border-none focus:outline-none focus:ring-2 focus:ring-primary">
+<button class="glass px-6 py-3 rounded-full !rounded-button text-primary font-semibold hover:glow transition-all duration-300 whitespace-nowrap">
+Subscribe
+</button>
+</div>
+<div class="mt-6 text-sm text-gray-600">
+By subscribing, you agree to receive marketing emails from us. Don't worry, we'll never share your information.
+</div>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<footer class="glass mt-16 pt-16 pb-8 px-6">
+<div class="container mx-auto">
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+<!-- Column 1 -->
+<div>
+<h3 class="font-['Pacifico'] text-2xl mb-6 holographic">Sweets and Treats by Ky</h3>
+<p class="text-gray-700 mb-6">Creating magical desserts for your special moments.</p>
+<div class="flex space-x-4">
+<a href="#" class="w-10 h-10 flex items-center justify-center rounded-full glass">
+<i class="ri-instagram-line text-primary"></i>
+</a>
+<a href="#" class="w-10 h-10 flex items-center justify-center rounded-full glass">
+<i class="ri-facebook-fill text-primary"></i>
+</a>
+<a href="#" class="w-10 h-10 flex items-center justify-center rounded-full glass">
+<i class="ri-pinterest-line text-primary"></i>
+</a>
+<a href="#" class="w-10 h-10 flex items-center justify-center rounded-full glass">
+<i class="ri-tiktok-line text-primary"></i>
+</a>
+</div>
+</div>
+<!-- Column 2 -->
+<div>
+<h4 class="font-bold text-lg mb-4">Quick Links</h4>
+<ul class="space-y-2">
+<li><a href="#" class="text-gray-700 hover:text-primary">Home</a></li>
+<li><a href="#gallery" class="text-gray-700 hover:text-primary">Gallery</a></li>
+<li><a href="#order" class="text-gray-700 hover:text-primary">Order Now</a></li>
+<li><a href="#customize" class="text-gray-700 hover:text-primary">Custom Cakes</a></li>
+<li><a href="#about" class="text-gray-700 hover:text-primary">About Us</a></li>
+</ul>
+</div>
+<!-- Column 3 -->
+<div>
+<h4 class="font-bold text-lg mb-4">Customer Care</h4>
+<ul class="space-y-2">
+<li><a href="#" class="text-gray-700 hover:text-primary">FAQ</a></li>
+<li><a href="#" class="text-gray-700 hover:text-primary">Shipping & Delivery</a></li>
+<li><a href="#" class="text-gray-700 hover:text-primary">Returns & Refunds</a></li>
+<li><a href="#" class="text-gray-700 hover:text-primary">Privacy Policy</a></li>
+<li><a href="#" class="text-gray-700 hover:text-primary">Terms of Service</a></li>
+</ul>
+</div>
+<!-- Column 4 -->
+<div>
+<h4 class="font-bold text-lg mb-4">Contact Us</h4>
+<ul class="space-y-2">
+<li class="flex items-center">
+<i class="ri-map-pin-line mr-2 text-primary"></i>
+<span class="text-gray-700">123 Magic Lane, Sweetville, CA 90210</span>
+</li>
+<li class="flex items-center">
+<i class="ri-phone-line mr-2 text-primary"></i>
+<span class="text-gray-700">(555) 123-4567</span>
+</li>
+<li class="flex items-center">
+<i class="ri-mail-line mr-2 text-primary"></i>
+<span class="text-gray-700">hello@sweetsbyky.com</span>
+</li>
+<li class="flex items-center">
+<i class="ri-time-line mr-2 text-primary"></i>
+<span class="text-gray-700">Tue-Sun: 10AM - 7PM</span>
+</li>
+</ul>
+</div>
+</div>
+<div class="pt-8 border-t border-white/20 flex flex-col md:flex-row justify-between items-center">
+<p class="text-gray-700 mb-4 md:mb-0">© 2025 Sweets and Treats by Ky. All rights reserved.</p>
+<div class="flex items-center space-x-4">
+<i class="ri-visa-line text-xl"></i>
+<i class="ri-mastercard-line text-xl"></i>
+<i class="ri-paypal-line text-xl"></i>
+<i class="ri-apple-fill text-xl"></i>
+</div>
+</div>
+</div>
+</footer>
+<!-- Back to Top Button -->
+<button id="backToTop" class="fixed bottom-6 right-6 w-12 h-12 flex items-center justify-center rounded-full glass opacity-0 invisible transition-all duration-300 z-50">
+<i class="ri-arrow-up-line text-primary"></i>
+</button>
+<!-- Sparkle Container -->
+<div id="sparkleContainer" class="fixed inset-0 pointer-events-none z-50"></div>
+<!-- Scripts -->
+<script id="menuToggleScript">
+document.addEventListener('DOMContentLoaded', function() {
+const menuToggle = document.getElementById('menuToggle');
+const mobileMenu = document.getElementById('mobileMenu');
+menuToggle.addEventListener('click', function() {
+mobileMenu.classList.toggle('hidden');
+if (menuToggle.querySelector('i').classList.contains('ri-menu-line')) {
+menuToggle.querySelector('i').classList.remove('ri-menu-line');
+menuToggle.querySelector('i').classList.add('ri-close-line');
+} else {
+menuToggle.querySelector('i').classList.remove('ri-close-line');
+menuToggle.querySelector('i').classList.add('ri-menu-line');
+}
+});
+});
+</script>
+<script id="galleryFilterScript">
+document.addEventListener('DOMContentLoaded', function() {
+const filterButtons = document.querySelectorAll('.filter-btn');
+const galleryItems = document.querySelectorAll('.gallery-item');
+filterButtons.forEach(button => {
+button.addEventListener('click', function() {
+// Remove active class from all buttons
+filterButtons.forEach(btn => btn.classList.remove('active'));
+// Add active class to clicked button
+this.classList.add('active');
+const filter = this.getAttribute('data-filter');
+// Show/hide gallery items based on filter
+galleryItems.forEach(item => {
+if (filter === 'all' || item.getAttribute('data-category') === filter) {
+item.style.display = 'block';
+} else {
+item.style.display = 'none';
+}
+});
+});
+});
+});
+</script>
+<script id="cakeCustomizerScript">
+document.addEventListener('DOMContentLoaded', function() {
+// Size selection
+const sizeOptions = document.querySelectorAll('.size-option');
+sizeOptions.forEach(option => {
+option.addEventListener('click', function() {
+sizeOptions.forEach(opt => opt.classList.remove('active'));
+this.classList.add('active');
+updateCakePreview();
+updatePrice();
+});
+});
+// Color selection
+const colorOptions = document.querySelectorAll('.color-option');
+colorOptions.forEach(option => {
+option.addEventListener('click', function() {
+colorOptions.forEach(opt => opt.classList.remove('active'));
+this.classList.add('active');
+updateCakePreview();
+updatePrice();
+});
+});
+// Flavor and toppings
+const flavorInputs = document.querySelectorAll('input[name="flavor"]');
+const toppingInputs = document.querySelectorAll('input[name="toppings"]');
+flavorInputs.forEach(input => {
+input.addEventListener('change', function() {
+updateCakePreview();
+updatePrice();
+});
+});
+toppingInputs.forEach(input => {
+input.addEventListener('change', function() {
+updateCakePreview();
+updatePrice();
+});
+});
+// Update cake preview based on selections
+function updateCakePreview() {
+const cakePreview = document.getElementById('cakePreview');
+const selectedSize = document.querySelector('.size-option.active').getAttribute('data-size');
+const selectedColor = document.querySelector('.color-option.active').getAttribute('data-color');
+const icon = cakePreview.querySelector('i');
+// Update icon based on size
+if (selectedSize === 'tiered') {
+icon.classList.remove('ri-cake-2-line');
+icon.classList.add('ri-cake-3-line');
+} else {
+icon.classList.remove('ri-cake-3-line');
+icon.classList.add('ri-cake-2-line');
+}
+// Update color based on selection
+icon.style.color = selectedColor === 'holographic' ? '#db71da' :
+selectedColor === 'pink' ? '#f9c5d1' :
+selectedColor === 'lavender' ? '#b8c6db' :
+selectedColor === 'blue' ? '#a1eafb' :
+selectedColor === 'mint' ? '#d1f0b1' :
+selectedColor === 'yellow' ? '#ffeaa7' : '#ffffff';
+}
+// Update price based on selections
+function updatePrice() {
+const priceElement = document.getElementById('cakePrice');
+const selectedSize = document.querySelector('.size-option.active').getAttribute('data-size');
+const toppingsCount = document.querySelectorAll('input[name="toppings"]:checked').length;
+let basePrice = 0;
+// Set base price based on size
+if (selectedSize === '6') {
+basePrice = 35.99;
+} else if (selectedSize === '8') {
+basePrice = 45.99;
+} else if (selectedSize === '10') {
+basePrice = 59.99;
+} else if (selectedSize === 'tiered') {
+basePrice = 89.99;
+}
+// Add $2.50 for each topping
+const toppingsPrice = toppingsCount * 2.5;
+// Calculate total
+const totalPrice = basePrice + toppingsPrice;
+// Update price display
+priceElement.textContent = `$${totalPrice.toFixed(2)}`;
+}
+});
+</script>
+<script id="quantityControlScript">
+document.addEventListener('DOMContentLoaded', function() {
+const minusButtons = document.querySelectorAll('button:first-of-type');
+const plusButtons = document.querySelectorAll('button:last-of-type');
+minusButtons.forEach(button => {
+if (button.textContent === '-') {
+button.addEventListener('click', function() {
+const input = this.nextElementSibling;
+let value = parseInt(input.value);
+if (value > 0) {
+input.value = value - 1;
+}
+});
+}
+});
+plusButtons.forEach(button => {
+if (button.textContent === '+') {
+button.addEventListener('click', function() {
+const input = this.previousElementSibling;
+let value = parseInt(input.value);
+input.value = value + 1;
+});
+}
+});
+});
+</script>
+<script id="backToTopScript">
+document.addEventListener('DOMContentLoaded', function() {
+const backToTopButton = document.getElementById('backToTop');
+window.addEventListener('scroll', function() {
+if (window.pageYOffset > 300) {
+backToTopButton.classList.remove('opacity-0', 'invisible');
+backToTopButton.classList.add('opacity-100', 'visible');
+} else {
+backToTopButton.classList.remove('opacity-100', 'visible');
+backToTopButton.classList.add('opacity-0', 'invisible');
+}
+});
+backToTopButton.addEventListener('click', function() {
+window.scrollTo({
+top: 0,
+behavior: 'smooth'
+});
+});
+});
+</script>
+<script id="sparkleEffectScript">
+document.addEventListener('DOMContentLoaded', function() {
+const sparkleContainer = document.getElementById('sparkleContainer');
+document.addEventListener('mousemove', function(e) {
+if (Math.random() > 0.9) {
+createSparkle(e.clientX, e.clientY);
+}
+});
+function createSparkle(x, y) {
+const sparkle = document.createElement('div');
+sparkle.classList.add('sparkle');
+// Random position around cursor
+const offsetX = (Math.random() - 0.5) * 20;
+const offsetY = (Math.random() - 0.5) * 20;
+sparkle.style.left = (x + offsetX) + 'px';
+sparkle.style.top = (y + offsetY) + 'px';
+// Random size
+const size = Math.random() * 6 + 4;
+sparkle.style.width = size + 'px';
+sparkle.style.height = size + 'px';
+// Random color
+const colors = ['#db71da', '#dcb1eb', '#ebeef0'];
+const randomColor = colors[Math.floor(Math.random() * colors.length)];
+sparkle.style.backgroundColor = randomColor;
+sparkle.style.boxShadow = `0 0 10px 2px ${randomColor}`;
+// Add to container
+sparkleContainer.appendChild(sparkle);
+// Animate
+sparkle.style.animation = 'sparkle-animation 1s ease-in-out forwards';
+// Remove after animation
+setTimeout(() => {
+sparkle.remove();
+}, 1000);
+}
+// Create random sparkles throughout the page
+setInterval(() => {
+const x = Math.random() * window.innerWidth;
+const y = Math.random() * window.innerHeight;
+createSparkle(x, y);
+}, 300);
+});
+</script>
+</body>
+</html>
