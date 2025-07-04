@@ -1,0 +1,744 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sweet Delights Nigeria - Premium Bakery</title>
+<script src="https://cdn.tailwindcss.com/3.4.16"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css">
+<style>
+:where([class^="ri-"])::before { content: "\f3c2"; }
+body {
+font-family: 'Poppins', sans-serif;
+color: #3E2723;
+}
+.hero-section {
+background-image: url('https://readdy.ai/api/search-image?query=beautiful%20bakery%20scene%20with%20delicious%20Nigerian%20and%20international%20cakes%20on%20display%2C%20warm%20lighting%2C%20soft%20brown%20tones%2C%20elegant%20atmosphere%2C%20professional%20photography%2C%20clear%20focus%20on%20cakes%2C%20blurred%20background%20on%20left%20side%20for%20text%20overlay%2C%20high%20quality%20food%20photography&width=1920&height=800&seq=1&orientation=landscape');
+background-size: cover;
+background-position: center;
+}
+.custom-input:focus {
+outline: none;
+border-color: #8B4513;
+}
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+-webkit-appearance: none;
+margin: 0;
+}
+.custom-checkbox {
+appearance: none;
+-webkit-appearance: none;
+width: 20px;
+height: 20px;
+border: 2px solid #8B4513;
+border-radius: 4px;
+background-color: white;
+display: inline-block;
+position: relative;
+cursor: pointer;
+}
+.custom-checkbox:checked {
+background-color: #8B4513;
+}
+.custom-checkbox:checked::after {
+content: '';
+position: absolute;
+width: 5px;
+height: 10px;
+border: solid white;
+border-width: 0 2px 2px 0;
+top: 3px;
+left: 6px;
+transform: rotate(45deg);
+}
+.custom-radio {
+appearance: none;
+-webkit-appearance: none;
+width: 20px;
+height: 20px;
+border: 2px solid #8B4513;
+border-radius: 50%;
+background-color: white;
+display: inline-block;
+position: relative;
+cursor: pointer;
+}
+.custom-radio:checked::after {
+content: '';
+position: absolute;
+width: 10px;
+height: 10px;
+border-radius: 50%;
+background-color: #8B4513;
+top: 3px;
+left: 3px;
+}
+.custom-switch {
+position: relative;
+display: inline-block;
+width: 50px;
+height: 24px;
+}
+.custom-switch input {
+opacity: 0;
+width: 0;
+height: 0;
+}
+.slider {
+position: absolute;
+cursor: pointer;
+top: 0;
+left: 0;
+right: 0;
+bottom: 0;
+background-color: #FAF0E6;
+transition: .4s;
+border-radius: 34px;
+}
+.slider:before {
+position: absolute;
+content: "";
+height: 16px;
+width: 16px;
+left: 4px;
+bottom: 4px;
+background-color: white;
+transition: .4s;
+border-radius: 50%;
+}
+input:checked + .slider {
+background-color: #8B4513;
+}
+input:checked + .slider:before {
+transform: translateX(26px);
+}
+</style>
+<script>tailwind.config={theme:{extend:{colors:{primary:'#8B4513',secondary:'#DEB887'},borderRadius:{'none':'0px','sm':'4px',DEFAULT:'8px','md':'12px','lg':'16px','xl':'20px','2xl':'24px','3xl':'32px','full':'9999px','button':'8px'}}}}</script>
+</head>
+<body class="bg-[#FFFAF0]">
+<!-- Header Section -->
+<header class="bg-[#F5E6D3] sticky top-0 z-50 shadow-sm">
+<div class="container mx-auto px-4 py-3 flex justify-between items-center">
+<a href="#" class="text-3xl font-['Pacifico'] text-primary">logo</a>
+<nav class="hidden md:flex items-center space-x-6">
+<a href="#" class="text-primary font-medium hover:text-opacity-80 transition-colors">Home</a>
+<a href="#" class="text-[#3E2723] font-medium hover:text-primary transition-colors">Our Cakes</a>
+<a href="#" class="text-[#3E2723] font-medium hover:text-primary transition-colors">Custom Orders</a>
+<a href="#" class="text-[#3E2723] font-medium hover:text-primary transition-colors">About Us</a>
+<a href="#" class="text-[#3E2723] font-medium hover:text-primary transition-colors">Contact</a>
+</nav>
+<div class="flex items-center space-x-4">
+<button class="bg-primary text-white px-5 py-2 !rounded-button font-medium hover:bg-opacity-90 transition-colors whitespace-nowrap">Order Now</button>
+<button class="md:hidden w-10 h-10 flex items-center justify-center text-primary">
+<i class="ri-menu-line ri-lg"></i>
+</button>
+</div>
+</div>
+</header>
+<!-- Hero Section -->
+<section class="hero-section relative min-h-[60vh] sm:min-h-[70vh] flex items-center">
+<div class="absolute inset-0 bg-black bg-opacity-40"></div>
+<div class="container mx-auto px-4 sm:px-6 py-16 sm:py-24 md:py-32 relative z-10">
+<div class="max-w-2xl text-white">
+<h1 class="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 leading-tight">Exquisite Nigerian & International Cakes</h1>
+<p class="text-base sm:text-lg mb-6 sm:mb-8">Bringing the rich flavors of Nigeria and the elegance of international baking traditions to your special moments.</p>
+<div class="flex flex-wrap gap-4">
+<button class="bg-primary text-white px-6 py-3 !rounded-button font-medium hover:bg-opacity-90 transition-colors whitespace-nowrap">Browse Our Collection</button>
+<button class="bg-white text-primary px-6 py-3 !rounded-button font-medium hover:bg-opacity-90 transition-colors whitespace-nowrap">Contact Us</button>
+</div>
+</div>
+</div>
+</section>
+<!-- Featured Categories -->
+<section class="py-16 bg-white">
+<div class="container mx-auto px-4 sm:px-6">
+<div class="text-center mb-8 sm:mb-12">
+<h2 class="text-2xl sm:text-3xl font-bold text-primary mb-2">Our Cake Categories</h2>
+<p class="text-[#3E2723] max-w-2xl mx-auto text-sm sm:text-base">Explore our diverse range of cakes crafted with passion and expertise</p>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+<div class="group relative overflow-hidden rounded-lg border-2 border-[#DEB887] h-80">
+<img src="https://readdy.ai/api/search-image?query=beautiful%20Nigerian%20traditional%20cakes%20with%20colorful%20African%20patterns%20and%20decorations%2C%20elegant%20presentation%2C%20warm%20lighting%2C%20professional%20food%20photography%2C%20high%20quality%20image%20with%20soft%20background%2C%20showcasing%20cultural%20elements&width=600&height=800&seq=2&orientation=portrait" alt="Nigerian Traditional Cakes" class="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-110">
+<div class="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-0 group-hover:opacity-80 transition-opacity duration-300 flex items-end">
+<div class="p-6 text-white">
+<h3 class="text-xl font-bold mb-2">Nigerian Traditional Cakes</h3>
+<p class="mb-4">Authentic flavors with cultural richness</p>
+<button class="bg-primary text-white px-4 py-2 !rounded-button font-medium hover:bg-opacity-90 transition-colors whitespace-nowrap">View Collection</button>
+</div>
+</div>
+</div>
+<div class="group relative overflow-hidden rounded-lg border-2 border-[#DEB887] h-80">
+<img src="https://readdy.ai/api/search-image?query=elegant%20modern%20wedding%20cake%20with%20multiple%20tiers%2C%20white%20frosting%20with%20delicate%20floral%20decorations%2C%20professional%20bakery%20photography%2C%20soft%20lighting%2C%20high%20quality%20image%20with%20neutral%20background%2C%20luxury%20wedding%20setting&width=600&height=800&seq=3&orientation=portrait" alt="Modern Wedding Cakes" class="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-110">
+<div class="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-0 group-hover:opacity-80 transition-opacity duration-300 flex items-end">
+<div class="p-6 text-white">
+<h3 class="text-xl font-bold mb-2">Modern Wedding Cakes</h3>
+<p class="mb-4">Elegant designs for your special day</p>
+<button class="bg-primary text-white px-4 py-2 !rounded-button font-medium hover:bg-opacity-90 transition-colors whitespace-nowrap">View Collection</button>
+</div>
+</div>
+</div>
+<div class="group relative overflow-hidden rounded-lg border-2 border-[#DEB887] h-80">
+<img src="https://readdy.ai/api/search-image?query=colorful%20special%20occasion%20cake%20with%20birthday%20decorations%2C%20celebration%20theme%2C%20vibrant%20colors%2C%20professional%20bakery%20photography%2C%20soft%20lighting%2C%20high%20quality%20image%20with%20neutral%20background%2C%20festive%20atmosphere&width=600&height=800&seq=4&orientation=portrait" alt="Special Occasion Cakes" class="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-110">
+<div class="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-0 group-hover:opacity-80 transition-opacity duration-300 flex items-end">
+<div class="p-6 text-white">
+<h3 class="text-xl font-bold mb-2">Special Occasion Cakes</h3>
+<p class="mb-4">Celebrate life's moments with our custom designs</p>
+<button class="bg-primary text-white px-4 py-2 !rounded-button font-medium hover:bg-opacity-90 transition-colors whitespace-nowrap">View Collection</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Popular Products -->
+<section class="py-16 bg-[#FAF0E6]">
+<div class="container mx-auto px-4 sm:px-6">
+<div class="text-center mb-8 sm:mb-12">
+<h2 class="text-2xl sm:text-3xl font-bold text-primary mb-2">Our Bestselling Cakes</h2>
+<p class="text-[#3E2723] max-w-2xl mx-auto text-sm sm:text-base">Discover our most loved creations that have delighted countless customers</p>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-6">
+<!-- Product 1 -->
+<div class="bg-white rounded-lg shadow-md overflow-hidden transition-transform hover:shadow-lg hover:-translate-y-1">
+<div class="h-64 overflow-hidden">
+<img src="https://readdy.ai/api/search-image?query=delicious%20chocolate%20cake%20with%20ganache%20frosting%2C%20decorated%20with%20chocolate%20shavings%2C%20professional%20food%20photography%2C%20soft%20lighting%2C%20high%20quality%20image%20with%20neutral%20background%2C%20appetizing%20appearance&width=500&height=500&seq=5&orientation=squarish" alt="Chocolate Indulgence Cake" class="w-full h-full object-cover object-top">
+</div>
+<div class="p-4">
+<h3 class="text-lg font-bold mb-2">Chocolate Indulgence</h3>
+<p class="text-sm text-gray-600 mb-4">Rich chocolate layers with smooth ganache frosting</p>
+<div class="flex justify-between items-center">
+<span class="font-bold text-primary">₦12,500</span>
+<button class="bg-primary text-white px-4 py-2 !rounded-button text-sm font-medium hover:bg-opacity-90 transition-colors whitespace-nowrap">Order Now</button>
+</div>
+</div>
+</div>
+<!-- Product 2 -->
+<div class="bg-white rounded-lg shadow-md overflow-hidden transition-transform hover:shadow-lg hover:-translate-y-1">
+<div class="h-64 overflow-hidden">
+<img src="https://readdy.ai/api/search-image?query=traditional%20Nigerian%20fruit%20cake%20with%20rich%20dark%20color%2C%20decorated%20with%20fruits%20and%20nuts%2C%20professional%20food%20photography%2C%20soft%20lighting%2C%20high%20quality%20image%20with%20neutral%20background%2C%20cultural%20elements&width=500&height=500&seq=6&orientation=squarish" alt="Nigerian Fruit Cake" class="w-full h-full object-cover object-top">
+</div>
+<div class="p-4">
+<h3 class="text-lg font-bold mb-2">Nigerian Fruit Cake</h3>
+<p class="text-sm text-gray-600 mb-4">Traditional recipe with rich fruits and spices</p>
+<div class="flex justify-between items-center">
+<span class="font-bold text-primary">₦15,000</span>
+<button class="bg-primary text-white px-4 py-2 !rounded-button text-sm font-medium hover:bg-opacity-90 transition-colors whitespace-nowrap">Order Now</button>
+</div>
+</div>
+</div>
+<!-- Product 3 -->
+<div class="bg-white rounded-lg shadow-md overflow-hidden transition-transform hover:shadow-lg hover:-translate-y-1">
+<div class="h-64 overflow-hidden">
+<img src="https://readdy.ai/api/search-image?query=elegant%20red%20velvet%20cake%20with%20cream%20cheese%20frosting%2C%20decorated%20with%20red%20velvet%20crumbs%2C%20professional%20food%20photography%2C%20soft%20lighting%2C%20high%20quality%20image%20with%20neutral%20background%2C%20vibrant%20red%20color&width=500&height=500&seq=7&orientation=squarish" alt="Red Velvet Delight" class="w-full h-full object-cover object-top">
+</div>
+<div class="p-4">
+<h3 class="text-lg font-bold mb-2">Red Velvet Delight</h3>
+<p class="text-sm text-gray-600 mb-4">Smooth cream cheese frosting with moist red velvet</p>
+<div class="flex justify-between items-center">
+<span class="font-bold text-primary">₦13,500</span>
+<button class="bg-primary text-white px-4 py-2 !rounded-button text-sm font-medium hover:bg-opacity-90 transition-colors whitespace-nowrap">Order Now</button>
+</div>
+</div>
+</div>
+<!-- Product 4 -->
+<div class="bg-white rounded-lg shadow-md overflow-hidden transition-transform hover:shadow-lg hover:-translate-y-1">
+<div class="h-64 overflow-hidden">
+<img src="https://readdy.ai/api/search-image?query=beautiful%20vanilla%20buttercream%20wedding%20cake%20with%20two%20tiers%2C%20decorated%20with%20fresh%20flowers%2C%20professional%20food%20photography%2C%20soft%20lighting%2C%20high%20quality%20image%20with%20neutral%20background%2C%20elegant%20appearance&width=500&height=500&seq=8&orientation=squarish" alt="Vanilla Elegance" class="w-full h-full object-cover object-top">
+</div>
+<div class="p-4">
+<h3 class="text-lg font-bold mb-2">Vanilla Elegance</h3>
+<p class="text-sm text-gray-600 mb-4">Classic vanilla with smooth buttercream frosting</p>
+<div class="flex justify-between items-center">
+<span class="font-bold text-primary">₦11,000</span>
+<button class="bg-primary text-white px-4 py-2 !rounded-button text-sm font-medium hover:bg-opacity-90 transition-colors whitespace-nowrap">Order Now</button>
+</div>
+</div>
+</div>
+<!-- Product 5 -->
+<div class="bg-white rounded-lg shadow-md overflow-hidden transition-transform hover:shadow-lg hover:-translate-y-1">
+<div class="h-64 overflow-hidden">
+<img src="https://readdy.ai/api/search-image?query=colorful%20birthday%20cake%20with%20sprinkles%20and%20candles%2C%20festive%20decorations%2C%20professional%20food%20photography%2C%20soft%20lighting%2C%20high%20quality%20image%20with%20neutral%20background%2C%20celebration%20theme&width=500&height=500&seq=9&orientation=squarish" alt="Birthday Blast" class="w-full h-full object-cover object-top">
+</div>
+<div class="p-4">
+<h3 class="text-lg font-bold mb-2">Birthday Blast</h3>
+<p class="text-sm text-gray-600 mb-4">Colorful sprinkles with your choice of flavor</p>
+<div class="flex justify-between items-center">
+<span class="font-bold text-primary">₦14,000</span>
+<button class="bg-primary text-white px-4 py-2 !rounded-button text-sm font-medium hover:bg-opacity-90 transition-colors whitespace-nowrap">Order Now</button>
+</div>
+</div>
+</div>
+<!-- Product 6 -->
+<div class="bg-white rounded-lg shadow-md overflow-hidden transition-transform hover:shadow-lg hover:-translate-y-1">
+<div class="h-64 overflow-hidden">
+<img src="https://readdy.ai/api/search-image?query=traditional%20Nigerian%20chin%20chin%20cake%20with%20cultural%20decorations%2C%20professional%20food%20photography%2C%20soft%20lighting%2C%20high%20quality%20image%20with%20neutral%20background%2C%20authentic%20appearance&width=500&height=500&seq=10&orientation=squarish" alt="Chin Chin Crunch" class="w-full h-full object-cover object-top">
+</div>
+<div class="p-4">
+<h3 class="text-lg font-bold mb-2">Chin Chin Crunch</h3>
+<p class="text-sm text-gray-600 mb-4">Nigerian favorite with crunchy chin chin layers</p>
+<div class="flex justify-between items-center">
+<span class="font-bold text-primary">₦13,000</span>
+<button class="bg-primary text-white px-4 py-2 !rounded-button text-sm font-medium hover:bg-opacity-90 transition-colors whitespace-nowrap">Order Now</button>
+</div>
+</div>
+</div>
+<!-- Product 7 -->
+<div class="bg-white rounded-lg shadow-md overflow-hidden transition-transform hover:shadow-lg hover:-translate-y-1">
+<div class="h-64 overflow-hidden">
+<img src="https://readdy.ai/api/search-image?query=coconut%20cake%20with%20tropical%20decorations%2C%20professional%20food%20photography%2C%20soft%20lighting%2C%20high%20quality%20image%20with%20neutral%20background%2C%20fresh%20appearance&width=500&height=500&seq=11&orientation=squarish" alt="Coconut Paradise" class="w-full h-full object-cover object-top">
+</div>
+<div class="p-4">
+<h3 class="text-lg font-bold mb-2">Coconut Paradise</h3>
+<p class="text-sm text-gray-600 mb-4">Tropical coconut flavor with creamy frosting</p>
+<div class="flex justify-between items-center">
+<span class="font-bold text-primary">₦12,000</span>
+<button class="bg-primary text-white px-4 py-2 !rounded-button text-sm font-medium hover:bg-opacity-90 transition-colors whitespace-nowrap">Order Now</button>
+</div>
+</div>
+</div>
+<!-- Product 8 -->
+<div class="bg-white rounded-lg shadow-md overflow-hidden transition-transform hover:shadow-lg hover:-translate-y-1">
+<div class="h-64 overflow-hidden">
+<img src="https://readdy.ai/api/search-image?query=chocolate%20and%20caramel%20drip%20cake%20with%20elegant%20decorations%2C%20professional%20food%20photography%2C%20soft%20lighting%2C%20high%20quality%20image%20with%20neutral%20background%2C%20luxurious%20appearance&width=500&height=500&seq=12&orientation=squarish" alt="Caramel Dream" class="w-full h-full object-cover object-top">
+</div>
+<div class="p-4">
+<h3 class="text-lg font-bold mb-2">Caramel Dream</h3>
+<p class="text-sm text-gray-600 mb-4">Chocolate cake with caramel drip and decorations</p>
+<div class="flex justify-between items-center">
+<span class="font-bold text-primary">₦14,500</span>
+<button class="bg-primary text-white px-4 py-2 !rounded-button text-sm font-medium hover:bg-opacity-90 transition-colors whitespace-nowrap">Order Now</button>
+</div>
+</div>
+</div>
+</div>
+<div class="text-center mt-10">
+<button class="bg-primary text-white px-6 py-3 !rounded-button font-medium hover:bg-opacity-90 transition-colors whitespace-nowrap">View All Cakes</button>
+</div>
+</div>
+</section>
+<!-- Order Process Section -->
+<section class="py-16 bg-white">
+<div class="container mx-auto px-4">
+<div class="text-center mb-12">
+<h2 class="text-3xl font-bold text-primary mb-2">How to Order</h2>
+<p class="text-[#3E2723] max-w-2xl mx-auto">Simple steps to get your perfect cake delivered</p>
+</div>
+<div class="flex flex-col md:flex-row justify-center items-center md:items-start gap-8 md:gap-4 relative">
+<!-- Step 1 -->
+<div class="flex flex-col items-center text-center max-w-xs z-10">
+<div class="w-20 h-20 flex items-center justify-center bg-[#F5E6D3] rounded-full mb-4">
+<i class="ri-cake-3-line ri-xl text-primary"></i>
+</div>
+<h3 class="text-xl font-bold mb-2">Choose Your Cake</h3>
+<p class="text-[#3E2723]">Browse our collections and select your favorite cake design or flavor</p>
+</div>
+<!-- Connector 1 -->
+<div class="hidden md:block w-16 h-0.5 bg-[#DEB887] self-center mt-10"></div>
+<!-- Step 2 -->
+<div class="flex flex-col items-center text-center max-w-xs z-10">
+<div class="w-20 h-20 flex items-center justify-center bg-[#F5E6D3] rounded-full mb-4">
+<i class="ri-palette-line ri-xl text-primary"></i>
+</div>
+<h3 class="text-xl font-bold mb-2">Customize Design</h3>
+<p class="text-[#3E2723]">Personalize your cake with colors, flavors, and special messages</p>
+</div>
+<!-- Connector 2 -->
+<div class="hidden md:block w-16 h-0.5 bg-[#DEB887] self-center mt-10"></div>
+<!-- Step 3 -->
+<div class="flex flex-col items-center text-center max-w-xs z-10">
+<div class="w-20 h-20 flex items-center justify-center bg-[#F5E6D3] rounded-full mb-4">
+<i class="ri-shopping-cart-line ri-xl text-primary"></i>
+</div>
+<h3 class="text-xl font-bold mb-2">Place Order</h3>
+<p class="text-[#3E2723]">Complete your order form with delivery details and payment</p>
+</div>
+</div>
+<div class="text-center mt-12">
+<button class="bg-primary text-white px-6 py-3 !rounded-button font-medium hover:bg-opacity-90 transition-colors whitespace-nowrap">Start Your Order</button>
+</div>
+</div>
+</section>
+<!-- Custom Order Form -->
+<section class="py-16 bg-[#FAF0E6]">
+<div class="container mx-auto px-4">
+<div class="max-w-3xl mx-auto bg-white rounded-lg shadow-lg p-4 sm:p-6 md:p-8">
+<div class="text-center mb-6 sm:mb-8">
+<h2 class="text-2xl sm:text-3xl font-bold text-primary mb-2">Custom Order</h2>
+<p class="text-[#3E2723]">Tell us about your dream cake and we'll make it a reality</p>
+</div>
+<form>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+<div>
+<label for="name" class="block text-[#3E2723] font-medium mb-2">Full Name</label>
+<input type="text" id="name" class="w-full px-4 py-2 border-2 border-[#DEB887] rounded focus:border-primary custom-input" placeholder="Your name">
+</div>
+<div>
+<label for="email" class="block text-[#3E2723] font-medium mb-2">Email Address</label>
+<input type="email" id="email" class="w-full px-4 py-2 border-2 border-[#DEB887] rounded focus:border-primary custom-input" placeholder="Your email">
+</div>
+<div>
+<label for="phone" class="block text-[#3E2723] font-medium mb-2">Phone Number</label>
+<input type="tel" id="phone" class="w-full px-4 py-2 border-2 border-[#DEB887] rounded focus:border-primary custom-input" placeholder="Your phone number">
+</div>
+<div>
+<label for="date" class="block text-[#3E2723] font-medium mb-2">Delivery Date</label>
+<input type="date" id="date" class="w-full px-4 py-2 border-2 border-[#DEB887] rounded focus:border-primary custom-input">
+</div>
+</div>
+<div class="mb-6">
+<label class="block text-[#3E2723] font-medium mb-2">Cake Type</label>
+<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+<div class="flex items-center">
+<input type="radio" name="cakeType" id="wedding" class="custom-radio">
+<label for="wedding" class="ml-2 text-[#3E2723]">Wedding Cake</label>
+</div>
+<div class="flex items-center">
+<input type="radio" name="cakeType" id="birthday" class="custom-radio">
+<label for="birthday" class="ml-2 text-[#3E2723]">Birthday Cake</label>
+</div>
+<div class="flex items-center">
+<input type="radio" name="cakeType" id="anniversary" class="custom-radio">
+<label for="anniversary" class="ml-2 text-[#3E2723]">Anniversary Cake</label>
+</div>
+<div class="flex items-center">
+<input type="radio" name="cakeType" id="corporate" class="custom-radio">
+<label for="corporate" class="ml-2 text-[#3E2723]">Corporate Event</label>
+</div>
+<div class="flex items-center">
+<input type="radio" name="cakeType" id="traditional" class="custom-radio">
+<label for="traditional" class="ml-2 text-[#3E2723]">Traditional Cake</label>
+</div>
+<div class="flex items-center">
+<input type="radio" name="cakeType" id="other" class="custom-radio">
+<label for="other" class="ml-2 text-[#3E2723]">Other</label>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+<div>
+<label for="size" class="block text-[#3E2723] font-medium mb-2">Cake Size</label>
+<div class="relative">
+<select id="size" class="w-full px-4 py-2 border-2 border-[#DEB887] rounded focus:border-primary custom-input appearance-none pr-8">
+<option value="" disabled selected>Select size</option>
+<option value="6inch">6 inch (serves 8-10)</option>
+<option value="8inch">8 inch (serves 12-16)</option>
+<option value="10inch">10 inch (serves 20-25)</option>
+<option value="12inch">12 inch (serves 30-40)</option>
+<option value="tiered">Multi-tiered</option>
+</select>
+<div class="absolute right-3 top-1/2 transform -translate-y-1/2 pointer-events-none">
+<i class="ri-arrow-down-s-line text-primary"></i>
+</div>
+</div>
+</div>
+<div>
+<label for="flavor" class="block text-[#3E2723] font-medium mb-2">Cake Flavor</label>
+<div class="relative">
+<select id="flavor" class="w-full px-4 py-2 border-2 border-[#DEB887] rounded focus:border-primary custom-input appearance-none pr-8">
+<option value="" disabled selected>Select flavor</option>
+<option value="chocolate">Chocolate</option>
+<option value="vanilla">Vanilla</option>
+<option value="redvelvet">Red Velvet</option>
+<option value="carrot">Carrot</option>
+<option value="fruitcake">Nigerian Fruit Cake</option>
+<option value="coconut">Coconut</option>
+</select>
+<div class="absolute right-3 top-1/2 transform -translate-y-1/2 pointer-events-none">
+<i class="ri-arrow-down-s-line text-primary"></i>
+</div>
+</div>
+</div>
+</div>
+<div class="mb-6">
+<label for="special" class="block text-[#3E2723] font-medium mb-2">Special Requirements</label>
+<textarea id="special" rows="4" class="w-full px-4 py-2 border-2 border-[#DEB887] rounded focus:border-primary custom-input" placeholder="Describe your cake design, special dietary needs, or any other requirements"></textarea>
+</div>
+<div class="mb-6">
+<label class="block text-[#3E2723] font-medium mb-2">Additional Options</label>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+<div class="flex items-center">
+<input type="checkbox" id="delivery" class="custom-checkbox">
+<label for="delivery" class="ml-2 text-[#3E2723]">Delivery Service</label>
+</div>
+<div class="flex items-center">
+<input type="checkbox" id="setup" class="custom-checkbox">
+<label for="setup" class="ml-2 text-[#3E2723]">Setup at Venue</label>
+</div>
+<div class="flex items-center">
+<input type="checkbox" id="allergies" class="custom-checkbox">
+<label for="allergies" class="ml-2 text-[#3E2723]">Allergy-Friendly Options</label>
+</div>
+<div class="flex items-center">
+<input type="checkbox" id="photo" class="custom-checkbox">
+<label for="photo" class="ml-2 text-[#3E2723]">Photo Cake</label>
+</div>
+</div>
+</div>
+<div class="mb-6">
+<label for="address" class="block text-[#3E2723] font-medium mb-2">Delivery Address (if applicable)</label>
+<textarea id="address" rows="2" class="w-full px-4 py-2 border-2 border-[#DEB887] rounded focus:border-primary custom-input" placeholder="Enter your delivery address"></textarea>
+</div>
+<div class="flex items-center mb-6">
+<input type="checkbox" id="terms" class="custom-checkbox">
+<label for="terms" class="ml-2 text-[#3E2723]">I agree to the terms and conditions</label>
+</div>
+<div class="text-center">
+<button type="submit" class="bg-primary text-white px-8 py-3 !rounded-button font-medium hover:bg-opacity-90 transition-colors whitespace-nowrap">Submit Order</button>
+</div>
+</form>
+</div>
+</div>
+</section>
+<!-- Testimonials Section -->
+<section class="py-16 bg-white">
+<div class="container mx-auto px-4">
+<div class="text-center mb-12">
+<h2 class="text-3xl font-bold text-primary mb-2">What Our Customers Say</h2>
+<p class="text-[#3E2723] max-w-2xl mx-auto">Hear from our satisfied customers about their experience</p>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+<!-- Testimonial 1 -->
+<div class="bg-[#F5E6D3] p-4 sm:p-6 rounded-lg">
+<div class="flex items-center mb-4">
+<div class="w-12 h-12 flex items-center justify-center bg-primary text-white rounded-full">
+<i class="ri-user-line ri-lg"></i>
+</div>
+<div class="ml-4">
+<h4 class="font-bold">Chioma Adeyemi</h4>
+<div class="flex text-[#DEB887]">
+<i class="ri-star-fill"></i>
+<i class="ri-star-fill"></i>
+<i class="ri-star-fill"></i>
+<i class="ri-star-fill"></i>
+<i class="ri-star-fill"></i>
+</div>
+</div>
+</div>
+<p class="text-[#3E2723]">"The traditional Nigerian fruit cake was absolutely perfect for my parents' anniversary. Everyone commented on how authentic and delicious it was. Will definitely order again!"</p>
+</div>
+<!-- Testimonial 2 -->
+<div class="bg-[#F5E6D3] p-6 rounded-lg">
+<div class="flex items-center mb-4">
+<div class="w-12 h-12 flex items-center justify-center bg-primary text-white rounded-full">
+<i class="ri-user-line ri-lg"></i>
+</div>
+<div class="ml-4">
+<h4 class="font-bold">Oluwaseun Johnson</h4>
+<div class="flex text-[#DEB887]">
+<i class="ri-star-fill"></i>
+<i class="ri-star-fill"></i>
+<i class="ri-star-fill"></i>
+<i class="ri-star-fill"></i>
+<i class="ri-star-fill"></i>
+</div>
+</div>
+</div>
+<p class="text-[#3E2723]">"My wedding cake was beyond my expectations! Not only was it beautiful, but it tasted amazing too. The team was professional and delivered exactly what I wanted."</p>
+</div>
+<!-- Testimonial 3 -->
+<div class="bg-[#F5E6D3] p-6 rounded-lg">
+<div class="flex items-center mb-4">
+<div class="w-12 h-12 flex items-center justify-center bg-primary text-white rounded-full">
+<i class="ri-user-line ri-lg"></i>
+</div>
+<div class="ml-4">
+<h4 class="font-bold">Folake Ogunleye</h4>
+<div class="flex text-[#DEB887]">
+<i class="ri-star-fill"></i>
+<i class="ri-star-fill"></i>
+<i class="ri-star-fill"></i>
+<i class="ri-star-fill"></i>
+<i class="ri-star-half-fill"></i>
+</div>
+</div>
+</div>
+<p class="text-[#3E2723]">"I ordered a birthday cake for my daughter and it was the highlight of her party! The design was exactly as requested and the taste was incredible. Thank you for making her day special!"</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Newsletter Section -->
+<section class="py-12 sm:py-16 bg-[#DEB887] bg-opacity-30">
+<div class="container mx-auto px-4 sm:px-6">
+<div class="max-w-2xl mx-auto text-center">
+<h2 class="text-2xl sm:text-3xl font-bold text-primary mb-2">Join Our Sweet Community</h2>
+<p class="text-[#3E2723] mb-6 text-sm sm:text-base">Subscribe to our newsletter for special offers, new cake designs, and baking tips</p>
+<form class="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
+<input type="email" placeholder="Your email address" class="px-4 py-2 sm:py-3 rounded-lg border-none focus:outline-none focus:ring-2 focus:ring-primary flex-grow max-w-md text-sm sm:text-base">
+<input type="email" placeholder="Your email address" class="px-4 py-3 rounded-lg border-none focus:outline-none focus:ring-2 focus:ring-primary flex-grow max-w-md">
+<button type="submit" class="bg-primary text-white px-6 py-3 !rounded-button font-medium hover:bg-opacity-90 transition-colors whitespace-nowrap">Subscribe</button>
+</form>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<footer class="bg-[#5C4033] text-white py-8 sm:py-12">
+<div class="container mx-auto px-4 sm:px-6">
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+<!-- Column 1 -->
+<div>
+<h3 class="text-xl font-bold mb-4">About Us</h3>
+<p class="mb-4">We are a premium Nigerian bakery specializing in traditional and modern cakes for all occasions. Our passion is creating delicious memories for our customers.</p>
+<div class="flex space-x-4">
+<a href="#" class="w-10 h-10 flex items-center justify-center bg-white bg-opacity-20 rounded-full hover:bg-opacity-30 transition-colors">
+<i class="ri-facebook-fill ri-lg"></i>
+</a>
+<a href="#" class="w-10 h-10 flex items-center justify-center bg-white bg-opacity-20 rounded-full hover:bg-opacity-30 transition-colors">
+<i class="ri-instagram-line ri-lg"></i>
+</a>
+<a href="#" class="w-10 h-10 flex items-center justify-center bg-white bg-opacity-20 rounded-full hover:bg-opacity-30 transition-colors">
+<i class="ri-twitter-x-line ri-lg"></i>
+</a>
+<a href="#" class="w-10 h-10 flex items-center justify-center bg-white bg-opacity-20 rounded-full hover:bg-opacity-30 transition-colors">
+<i class="ri-whatsapp-line ri-lg"></i>
+</a>
+</div>
+</div>
+<!-- Column 2 -->
+<div>
+<h3 class="text-xl font-bold mb-4">Contact Us</h3>
+<ul class="space-y-3">
+<li class="flex items-start">
+<div class="w-5 h-5 flex items-center justify-center mr-3 mt-1">
+<i class="ri-map-pin-line"></i>
+</div>
+<span>123 Bakery Street, Victoria Island, Lagos, Nigeria</span>
+</li>
+<li class="flex items-center">
+<div class="w-5 h-5 flex items-center justify-center mr-3">
+<i class="ri-phone-line"></i>
+</div>
+<span>+234 801 234 5678</span>
+</li>
+<li class="flex items-center">
+<div class="w-5 h-5 flex items-center justify-center mr-3">
+<i class="ri-mail-line"></i>
+</div>
+<span>info@sweetdelightsnigeria.com</span>
+</li>
+<li class="flex items-center">
+<div class="w-5 h-5 flex items-center justify-center mr-3">
+<i class="ri-time-line"></i>
+</div>
+<span>Mon-Sat: 9AM - 6PM, Sunday: Closed</span>
+</li>
+</ul>
+</div>
+<!-- Column 3 -->
+<div>
+<h3 class="text-xl font-bold mb-4">Quick Links</h3>
+<ul class="space-y-2">
+<li><a href="#" class="hover:text-[#DEB887] transition-colors">Home</a></li>
+<li><a href="#" class="hover:text-[#DEB887] transition-colors">Our Cakes</a></li>
+<li><a href="#" class="hover:text-[#DEB887] transition-colors">Custom Orders</a></li>
+<li><a href="#" class="hover:text-[#DEB887] transition-colors">About Us</a></li>
+<li><a href="#" class="hover:text-[#DEB887] transition-colors">Contact</a></li>
+<li><a href="#" class="hover:text-[#DEB887] transition-colors">Terms & Conditions</a></li>
+<li><a href="#" class="hover:text-[#DEB887] transition-colors">Privacy Policy</a></li>
+</ul>
+</div>
+</div>
+<div class="border-t border-white border-opacity-20 mt-8 pt-8 text-center">
+<p>© 2025 Sweet Delights Nigeria. All rights reserved.</p>
+<div class="flex justify-center mt-4 space-x-4">
+<i class="ri-visa-line ri-lg"></i>
+<i class="ri-mastercard-line ri-lg"></i>
+<i class="ri-paypal-line ri-lg"></i>
+</div>
+</div>
+</div>
+</footer>
+<!-- Mobile Menu (Hidden by default) -->
+<div id="mobileMenu" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden">
+<div class="bg-white h-full w-64 max-w-full p-6 transform transition-transform duration-300 -translate-x-full">
+<div class="flex justify-between items-center mb-8">
+<a href="#" class="text-2xl font-['Pacifico'] text-primary">logo</a>
+<button id="closeMenu" class="w-8 h-8 flex items-center justify-center text-primary">
+<i class="ri-close-line ri-lg"></i>
+</button>
+</div>
+<nav class="flex flex-col space-y-4">
+<a href="#" class="text-primary font-medium py-2 border-b border-gray-100">Home</a>
+<a href="#" class="text-[#3E2723] font-medium py-2 border-b border-gray-100 hover:text-primary transition-colors">Our Cakes</a>
+<a href="#" class="text-[#3E2723] font-medium py-2 border-b border-gray-100 hover:text-primary transition-colors">Custom Orders</a>
+<a href="#" class="text-[#3E2723] font-medium py-2 border-b border-gray-100 hover:text-primary transition-colors">About Us</a>
+<a href="#" class="text-[#3E2723] font-medium py-2 border-b border-gray-100 hover:text-primary transition-colors">Contact</a>
+</nav>
+<div class="mt-8">
+<button class="bg-primary text-white w-full py-3 !rounded-button font-medium hover:bg-opacity-90 transition-colors whitespace-nowrap">Order Now</button>
+</div>
+</div>
+</div>
+<script id="mobileMenuScript">
+document.addEventListener('DOMContentLoaded', function() {
+const mobileMenuButton = document.querySelector('.md\\:hidden');
+const mobileMenu = document.getElementById('mobileMenu');
+const closeMenuButton = document.getElementById('closeMenu');
+const menuContent = mobileMenu.querySelector('.bg-white');
+mobileMenuButton.addEventListener('click', function() {
+mobileMenu.classList.remove('hidden');
+setTimeout(() => {
+menuContent.classList.remove('-translate-x-full');
+}, 10);
+});
+function closeMenu() {
+menuContent.classList.add('-translate-x-full');
+setTimeout(() => {
+mobileMenu.classList.add('hidden');
+}, 300);
+}
+closeMenuButton.addEventListener('click', closeMenu);
+mobileMenu.addEventListener('click', function(e) {
+if (e.target === mobileMenu) {
+closeMenu();
+}
+});
+});
+</script>
+<script id="formValidationScript">
+document.addEventListener('DOMContentLoaded', function() {
+const orderForm = document.querySelector('form');
+if (orderForm) {
+orderForm.addEventListener('submit', function(e) {
+e.preventDefault();
+// Basic validation
+const name = document.getElementById('name');
+const email = document.getElementById('email');
+const terms = document.getElementById('terms');
+let isValid = true;
+if (!name.value.trim()) {
+name.classList.add('border-red-500');
+isValid = false;
+} else {
+name.classList.remove('border-red-500');
+}
+if (!email.value.trim() || !email.value.includes('@')) {
+email.classList.add('border-red-500');
+isValid = false;
+} else {
+email.classList.remove('border-red-500');
+}
+if (!terms.checked) {
+terms.classList.add('border-red-500');
+isValid = false;
+} else {
+terms.classList.remove('border-red-500');
+}
+if (isValid) {
+// Form submission logic would go here
+alert('Thank you for your order! We will contact you shortly to confirm the details.');
+orderForm.reset();
+} else {
+alert('Please fill in all required fields and accept the terms and conditions.');
+}
+});
+}
+});
+</script>
+</body>
+</html>
